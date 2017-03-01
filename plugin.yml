@@ -1,5 +1,5 @@
 name: JQDSounds
-main: JQD\Main
+main: BoxOfDevs\JQD\Main
 api:
 - 2.0.0
 - 3.0.0
