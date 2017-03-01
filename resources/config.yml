@@ -1,0 +1,10 @@
+# Sounds Config you can modify here the Sounds.
+
+# Available Sounds:
+# EndermanTeleportSound - PopSound - AnvilFallSound - BatSound - BlazeShootSound - DoorSound - FizzSound - GhastSound
+
+Join: PopSound
+
+Quit: EndermanTeleportSound
+
+Death: AnvilFallSound

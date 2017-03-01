@@ -1,0 +1,11 @@
+name: JQDSounds
+main: JQD\Main
+api:
+- 2.0.0
+- 3.0.0
+- 3.0.0-ALPHA1
+- 3.0.0-ALPHA2
+- 3.0.0-ALPHA3
+- 3.0.0-ALPHA4
+author: BoxOfDevs-Team
+description: Add and Modify your own Join Quit Death Sound.
