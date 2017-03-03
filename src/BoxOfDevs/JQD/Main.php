@@ -1,6 +1,6 @@
 <?php
 
-namespace JQD;
+namespace BoxOfDevs\JQD;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
@@ -32,21 +32,18 @@ class Main extends PluginBase implements Listener {
 	}
 	
 	public function onJoin(PlayerJoinEvent $event){
-		$sounds = new Config($this->getDataFolder()."config.yml", Config::YAML);
 		$player = $event->getPlayer();
 		$level = $player->getLevel();
 		$level->addSound(new ($sounds->get("Join"))($player));
 	}
 	
 	public function onQuit(PlayerQuitEvent $event){
-		$sounds = new Config($this->getDataFolder()."config.yml", Config::YAML);
 		$player = $event->getPlayer();
 		$level = $player->getLevel();
 		$level->addSound(new ($sounds->get("Quit"))($player));
 	}
 	
 	public function onDeath(PlayerDeathEvent $event){
-		$sounds = new Config($this->getDataFolder()."config.yml", Config::YAML);
 		$player = $event->getPlayer();
 		$level = $player->getLevel();
 		$level->addSound(new ($sounds->get("Death"))($player));
