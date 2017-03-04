@@ -24,11 +24,8 @@ use pocketmine\level\sound\GhastSound;
 
 class Main extends PluginBase implements Listener {
 	
-	public $sounds;
-	
 	public function onEnable(){
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		$this->sounds = new Config($this->getDataFolder()."config.yml", Config::YAML);
 		$this->saveDefaultConfig("config.yml");
 		$this->getLogger()->info(C::GREEN."Enabled!");
 	}
@@ -36,19 +33,25 @@ class Main extends PluginBase implements Listener {
 	public function onJoin(PlayerJoinEvent $event){
 		$player = $event->getPlayer();
 		$level = $player->getLevel();
-		$level->addSound(new ($this->sounds->get("Join"))($player));
+		$sounds = new Config($this->getDataFolder()."config.yml", Config::YAML);
+		$sound = $sounds->get('Join')($player);
+		$level->addSound(new $sound);
 	}
 	
 	public function onQuit(PlayerQuitEvent $event){
 		$player = $event->getPlayer();
 		$level = $player->getLevel();
-		$level->addSound(new ($this->sounds->get("Quit"))($player));
+		$sounds = new Config($this->getDataFolder()."config.yml", Config::YAML);
+		$sound = $sounds->get('Quit')($player);
+		$level->addSound(new $sound);
 	}
 	
 	public function onDeath(PlayerDeathEvent $event){
 		$player = $event->getPlayer();
 		$level = $player->getLevel();
-		$level->addSound(new ($this->sounds->get("Death"))($player));
+		$sounds = new Config($this->getDataFolder()."config.yml", Config::YAML);
+		$sound = $sounds->get('Quit')($player);
+		$level->addSound(new $sound);
 	}
 	
 	public function onDisable(){
