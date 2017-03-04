@@ -26,7 +26,7 @@ class Main extends PluginBase implements Listener {
 	
 	public function onEnable(){
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		$sounds = new Config($this->getDataFolder()."config.yml", Config::YAML);
+		$this->sounds = new Config($this->getDataFolder()."config.yml", Config::YAML);
 		$this->saveDefaultConfig("config.yml");
 		$this->getLogger()->info(C::GREEN."Enabled!");
 	}
@@ -34,19 +34,19 @@ class Main extends PluginBase implements Listener {
 	public function onJoin(PlayerJoinEvent $event){
 		$player = $event->getPlayer();
 		$level = $player->getLevel();
-		$level->addSound(new ($sounds->get("Join"))($player));
+		$level->addSound(new ($this->sounds->get("Join"))($player));
 	}
 	
 	public function onQuit(PlayerQuitEvent $event){
 		$player = $event->getPlayer();
 		$level = $player->getLevel();
-		$level->addSound(new ($sounds->get("Quit"))($player));
+		$level->addSound(new ($this->sounds->get("Quit"))($player));
 	}
 	
 	public function onDeath(PlayerDeathEvent $event){
 		$player = $event->getPlayer();
 		$level = $player->getLevel();
-		$level->addSound(new ($sounds->get("Death"))($player));
+		$level->addSound(new ($this->sounds->get("Death"))($player));
 	}
 	
 	public function onDisable(){
