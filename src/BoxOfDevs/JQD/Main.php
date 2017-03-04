@@ -24,6 +24,8 @@ use pocketmine\level\sound\GhastSound;
 
 class Main extends PluginBase implements Listener {
 	
+	public $sounds;
+	
 	public function onEnable(){
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->sounds = new Config($this->getDataFolder()."config.yml", Config::YAML);
