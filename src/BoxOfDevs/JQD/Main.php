@@ -27,6 +27,7 @@ class Main extends PluginBase implements Listener {
 	public function onEnable(){
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->saveDefaultConfig("config.yml");
+		$sounds = new Config($this->getDataFolder()."config.yml", Config::YAML);
 		$this->getLogger()->info(C::GREEN."Enabled!");
 	}
 	
