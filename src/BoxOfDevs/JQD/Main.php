@@ -33,25 +33,22 @@ class Main extends PluginBase implements Listener {
 	public function onJoin(PlayerJoinEvent $event){
 		$player = $event->getPlayer();
 		$level = $player->getLevel();
-		$sounds = new Config($this->getDataFolder()."config.yml", Config::YAML);
-		$sound = $sounds->get('Join')($player);
-		$level->addSound(new $sound);
+		$sound = $sounds->get('Join');
+		$level->addSound(new $sound($player));
 	}
 	
 	public function onQuit(PlayerQuitEvent $event){
 		$player = $event->getPlayer();
 		$level = $player->getLevel();
-		$sounds = new Config($this->getDataFolder()."config.yml", Config::YAML);
-		$sound = $sounds->get('Quit')($player);
-		$level->addSound(new $sound);
+		$sound = $this->sounds->get('Quit');
+		$level->addSound(new $sound($player));
 	}
 	
 	public function onDeath(PlayerDeathEvent $event){
 		$player = $event->getPlayer();
 		$level = $player->getLevel();
-		$sounds = new Config($this->getDataFolder()."config.yml", Config::YAML);
-		$sound = $sounds->get('Quit')($player);
-		$level->addSound(new $sound);
+		$sound = $this->sounds->get('Death');
+		$level->addSound(new $sound($player));
 	}
 	
 	public function onDisable(){
