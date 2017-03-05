@@ -27,14 +27,14 @@ class Main extends PluginBase implements Listener {
 	public function onEnable(){
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->saveDefaultConfig("config.yml");
-		$sounds = new Config($this->getDataFolder()."config.yml", Config::YAML);
+		$this->sounds = new Config($this->getDataFolder()."config.yml", Config::YAML);
 		$this->getLogger()->info(C::GREEN."Enabled!");
 	}
 	
 	public function onJoin(PlayerJoinEvent $event){
 		$player = $event->getPlayer();
 		$level = $player->getLevel();
-		$sound = $sounds->get('Join');
+		$sound = $this->sounds->get('Join');
 		$level->addSound(new $sound($player));
 	}
 	
