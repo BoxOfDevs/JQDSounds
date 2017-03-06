@@ -1,6 +1,7 @@
-# JQDSounds Config you can modify here the sounds.
+# JQDSounds Config
+# To modify the sounds, simply change the name of the sound you want.
 
-# Available:
+# Available Sounds:
 # EndermanTeleport - Pop - AnvilFall - Bat - BlazeShoot - Door - Fizz - Ghast
 
 Join: Pop
