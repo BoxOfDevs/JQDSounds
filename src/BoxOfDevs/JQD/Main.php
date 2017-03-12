@@ -36,7 +36,6 @@ class Main extends PluginBase implements Listener {
 		$level->addSound(self::buildSound($this->sounds->get('Join'), $player));
 	}
 	
-	
 	/*
 	Called when a player quits
 	@param     $event    \pocketmine\event\player\PlayerQuitEvent
@@ -47,7 +46,6 @@ class Main extends PluginBase implements Listener {
 		$level = $player->getLevel();
 		$level->addSound(self::buildSound($this->sounds->get('Quit'), $player));
 	}
-	
 	
 	/*
 	Called when a player dies
