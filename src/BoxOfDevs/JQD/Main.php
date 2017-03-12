@@ -14,7 +14,7 @@ use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\level\Position;
 
 class Main extends PluginBase implements Listener {
-
+	
 	/*
 	Called when the plugin enables
 	*/
