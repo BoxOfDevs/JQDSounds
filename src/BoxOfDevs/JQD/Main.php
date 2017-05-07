@@ -73,7 +73,7 @@ class Main extends PluginBase implements Listener {
 	*/
 	protected static function buildSound(string $sound, Position $pos) : \pocketmine\level\sound\Sound {
 		$sound = "pocketmine\\level\\sound\\".$sound."Sound";
-		$r = new \ReflectionMethod($sound, "__construct");
+		$r = new \ReflectionMethod($sound, "__construct");
 		$sound = "\\".$sound;
 		$params = $r->getParameters();
 		if(isset($params[1]) && $params[1]->getName() == "pitch"){
